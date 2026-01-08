@@ -1,0 +1,45 @@
+# Contexto del Proyecto: Juancadev
+
+**Objetivo Principal:** Canal de YouTube y blog enfocado en programación, desarrollo web y Godot.
+**Audiencia:** Desarrolladores principiantes e intermedios, entusiastas de Godot.
+**Tono:** Profesional, educativo, entusiasta y accesible.
+
+## Identidad de Marca (Brand Identity)
+
+**Nombre:** Juancadev
+**Colores Primarios:**
+- Azul: `#007FFF` (Confianza, Seguridad, Claridad)
+- Naranja: `#FFA500` (Energía, Entusiasmo, Creatividad)
+**Tipografía Principal:** Lato (Clara, legible, profesional)
+**Icono:** Una caja abierta con pequeños paquetes de software ingresando (Simboliza el empaquetamiento de software).
+
+## Estructura de Contenido para YouTube/Blog
+
+El contenido debe enfocarse en dos pilares principales:
+
+1.  **Desarrollo Web:**
+    *   Tutoriales de *frontend* (React, HTML, CSS, JavaScript, TailwindCSS).
+    *   Tutoriales de *backend* (Node.js, Python/FastAPI, bases de datos).
+    *   Mejores prácticas de desarrollo y arquitectura de software.
+2.  **Godot Engine:**
+    *   Introducción a Godot y GDScript.
+    *   Tutoriales de desarrollo de juegos 2D y 3D.
+    *   Conceptos de programación aplicados a Godot.
+
+## Instrucciones para GitHub Copilot
+
+Al generar código, documentación o contenido para Juancadev, sigue estas directrices:
+
+1.  **Estilo de Código:** Utiliza nombres de variables y funciones en español (si el contexto lo permite) o en inglés siguiendo el estándar `camelCase` o `snake_case` según el lenguaje. Incluye comentarios claros y concisos explicando la lógica compleja.
+2.  **Documentación (Markdown):**
+    *   Utiliza la paleta de colores de la marca para ejemplos de código o estilos (e.g., en CSS o TailwindCSS).
+    *   Asegúrate de que la tipografía Lato sea mencionada en cualquier referencia de diseño.
+    *   El contenido debe ser didáctico y desglosar los conceptos paso a paso.
+3.  **Estrategia Transmedia:** Todo contenido generado debe ser adaptable a diferentes plataformas:
+    *   **YouTube:** Guiones para videos (énfasis en la explicación visual y práctica).
+    *   **Blog:** Artículos detallados (énfasis en el texto, ejemplos de código completos y SEO).
+    *   **Redes Sociales (Twitter/X, Instagram):** Snippets de código, tips rápidos, y llamadas a la acción para el video/artículo completo.
+
+**Ejemplo de Título:** "Desarrollo Web: Crea un Nav Bar Responsivo con TailwindCSS y la Paleta de Colores de Juancadev (`#007FFF` y `#FFA500`)"
+
+**Prioridad de Tecnologías:** React, TailwindCSS, Godot Engine, GDScript, Python/FastAPI.

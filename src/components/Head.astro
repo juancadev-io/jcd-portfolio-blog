@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import {
+  LANGUAGES,
+  pathNameIsInLanguage,
+  DEFAULT_LANG,
+  getLocalizedPathname,
+  type UiType,
+} from "../i18n/utils";
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  lang: string;
+}
+
+const canonicalPathname = pathNameIsInLanguage(Astro.url.pathname, DEFAULT_LANG)
+	? Astro.url.pathname
+	: getLocalizedPathname(Astro.url.pathname, DEFAULT_LANG);
+const canonicalURL = new URL(canonicalPathname, Astro.site);
+const {
+	lang,
+	title,
+	description,
+	image = "",
+} = Astro.props;
+
+const alternateLang = Object.keys(LANGUAGES) as UiType[];
+const alternateLinks = alternateLang.map((_lang: UiType) => {
+	return {
+		href: new URL(getLocalizedPathname(Astro.url.pathname, _lang), Astro.site),
+		hreflang: _lang,
+	};
+});
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
+
+<!-- Font preloads -->
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Alternate URLs -->
+{
+	alternateLinks.map(({ href, hreflang }) => (
+		<link rel="alternate" href={href} hreflang={hreflang} />
+	))
+}
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<!-- Twitter -->

@@ -1,0 +1,15 @@
+---
+import { useTranslations, type UiType } from "../i18n/utils";
+
+const { lang } = Astro.props;
+const t = useTranslations(lang as UiType);
+
+---
+
+<footer>
+  <p>{t("footer.love")}</p>
+	<div>
+    <!-- TODO: Crear componete de Social Links  -->
+
+	</div>
+</footer>

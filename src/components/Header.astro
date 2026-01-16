@@ -1,7 +1,5 @@
 ---
-import LangLink from "./LangLink.astro";
 import HeaderLink from "./HeaderLink.astro";
-
 const { lang } = Astro.props;
 
 const homeSlug = `/${lang || ""}`;
@@ -15,11 +13,6 @@ const aboutSlug = `/${lang || ""}/about`;
       <HeaderLink href={homeSlug}>Home</HeaderLink>
       <HeaderLink href={blogSlug}>Blog</HeaderLink>
       <HeaderLink href={aboutSlug}>About</HeaderLink>
-    </div>
-    <!-- TODO: Mover cambio de idioma a Footer -->
-    <div>
-      <LangLink language="en" isActive={lang == "en"} />
-      <LangLink language="es" isActive={lang == "es"} />
     </div>
   </nav>
 </header>

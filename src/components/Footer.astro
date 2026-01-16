@@ -1,15 +1,36 @@
 ---
+import SocialIcon from "./SocialIcon.astro";
+import LangLink from "./LangLink.astro";
+
+import GithubIcon from "../icons/GithubIcon.astro";
+import YoutubeIcon from "../icons/YoutubeIcon.astro";
+import LinkedinIcon from "../icons/LinkedinIcon.astro";
+import XIcon from "../icons/XIcon.astro";
+
 import { useTranslations, type UiType } from "../i18n/utils";
 
 const { lang } = Astro.props;
 const t = useTranslations(lang as UiType);
-
 ---
 
 <footer>
-  <p>{t("footer.love")}</p>
-	<div>
-    <!-- TODO: Crear componete de Social Links  -->
-
-	</div>
+  <p class="text-sm">{t("footer.love")}</p>
+  <div class="flex items-center gap-2">
+    <SocialIcon href="https://github.com/juancadev-io" name="GitHub">
+      <GithubIcon />
+    </SocialIcon>
+    <SocialIcon href="https://www.youtube.com/@juanca-dev" name="YouTube">
+      <YoutubeIcon />
+    </SocialIcon>
+    <SocialIcon href="https://www.linkedin.com/in/juancadev-io" name="LinkedIn">
+      <LinkedinIcon />
+    </SocialIcon>
+    <SocialIcon href="https://x.com/juancadev_io" name="X">
+      <XIcon />
+    </SocialIcon>
+  </div>
+  <div>
+    <LangLink language="en" isActive={lang == "en"} />
+    <LangLink language="es" isActive={lang == "es"} />
+  </div>
 </footer>

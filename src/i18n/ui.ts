@@ -11,6 +11,8 @@ export const ui = {
     "home.description":
       "I’m Juancadev, a software developer focused on web development and game development with Godot. I create practical, hands-on content where I explain how things work behind the scenes, using real examples, clean code, and good practices, with the goal of helping other developers build strong foundations, develop technical thinking, and create their own projects with confidence.",
     "home.find.me": "Find me on",
+    "home.latest.title": "Posts",
+    "home.latest.noDate": "No date",
     "home.work.title": "Work",
     "home.work.current.name": "Dafiti",
     "home.work.current.description":
@@ -45,6 +47,9 @@ export const ui = {
     "home.title": "Hola",
     "home.description":
       "Soy Juancadev, desarrollador de software enfocado en desarrollo web y desarrollo de videojuegos con Godot. Creo contenido práctico y aplicado donde explico cómo funcionan las cosas por dentro, usando ejemplos reales, código limpio y buenas prácticas, con el objetivo de ayudar a otros desarrolladores a construir bases sólidas, desarrollar criterio técnico y crear sus propios proyectos con confianza.",
+    "home.find.me": "Encuéntrame en",
+    "home.latest.title": "Publicaciones",
+    "home.latest.noDate": "Sin fecha",
     "home.work.title": "Trabajo",
     "home.work.current.name": "Dafiti",
     "home.work.current.description":
@@ -55,7 +60,6 @@ export const ui = {
     "home.work.last.name": "Canastto",
     "home.work.last.description":
       "creando y manteniendo servicios backend robustos para una plataforma de comercio electrónico en crecimiento.",
-    "home.find.me": "Encuéntrame en",
     "home.work.more": "Más Lugares donde he trabajado",
     "about.title": "Sobre Mí",
     "about.description":

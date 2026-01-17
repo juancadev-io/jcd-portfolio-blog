@@ -1,4 +1,5 @@
 ---
+import FormattedDate from "../../components/FormattedDate.astro";
 import Layout from "../../layouts/Layout.astro";
 import SocialIcon from "../../components/SocialIcon.astro";
 import WorkItem from "../../components/WorkItem.astro";
@@ -8,10 +9,19 @@ import YoutubeIcon from "../../icons/YoutubeIcon.astro";
 import LinkedinIcon from "../../icons/LinkedinIcon.astro";
 import XIcon from "../../icons/XIcon.astro";
 
+import { getBlogPosts } from "../../content.config";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const latestPosts = (await getBlogPosts())
+  .filter((post) => post.data.lang === lang)
+  .sort(
+    (a, b) =>
+      (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
+  )
+  .slice(0, 10);
 
 export async function getStaticPaths() {
   return ["en", "es"].map((lang) => {
@@ -65,7 +75,9 @@ export async function getStaticPaths() {
     <span
       class="w-full flex items-center mt-4 font-medium text-primary-600 gap-2 hover:underline"
     >
-      {t("home.work.more")}
+      <a href="https://www.linkedin.com/in/juancadev-io" class="underline">
+        {t("home.work.more")}
+      </a>
       <SocialIcon
         href="https://www.linkedin.com/in/juancadev-io"
         name="LinkedIn"
@@ -73,5 +85,29 @@ export async function getStaticPaths() {
         <LinkedinIcon />
       </SocialIcon>
     </span>
+  </section>
+  <section class="container mt-8">
+    <h3>{t("home.latest.title")}</h3>
+    <ol class="mt-4 space-y-2">
+      {
+        latestPosts.map((post) => (
+          <li class="flex pb-3 gap-3 items-center">
+            <p class="text-sm">
+              {post.data.pubDate ? (
+                <FormattedDate date={post.data.pubDate} />
+              ) : (
+                t("home.latest.noDate")
+              )}
+            </p>
+            <a
+              class="block font-semibold text-primary-600 underline"
+              href={`/${lang}/blog/${post.blog_slug}`}
+            >
+              {post.data.title}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
   </section>
 </Layout>

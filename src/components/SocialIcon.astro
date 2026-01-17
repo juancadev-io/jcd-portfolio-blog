@@ -3,13 +3,13 @@ const { href, name } = Astro.props;
 ---
 
 <a
-  class="w-11 h-11 inline-flex items-center justify-center rounded-full border"
+  class="w-4 h-4 inline-flex items-center justify-center rounded-full"
   href={href}
   target="_blank"
   rel="noreferrer noopener"
   aria-label={name}
 >
-  <span class="w-6 h-6 fill-current">
+  <span class="w-4 h-4 fill-current">
     <slot />
   </span>
   <span class="sr-only">{name}</span>

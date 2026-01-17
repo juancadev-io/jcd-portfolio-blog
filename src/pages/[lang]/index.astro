@@ -19,6 +19,7 @@ export async function getStaticPaths() {
   });
 }
 ---
+
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
   <section class="container">
     <h2>
@@ -26,7 +27,7 @@ export async function getStaticPaths() {
     </h2>
     <p>{t("home.description")}</p>
     <span class="w-full flex">
-      {t("home.find.me")}: 
+      {t("home.find.me")}:
       <div class="flex gap-3 px-3 justify-center items-center">
         <SocialIcon href="https://github.com/juanca-dev" name="GitHub">
           <GithubIcon />
@@ -34,16 +35,13 @@ export async function getStaticPaths() {
         <SocialIcon href="https://www.youtube.com/@juanca-dev" name="YouTube">
           <YoutubeIcon />
         </SocialIcon>
-        <SocialIcon href="https://www.linkedin.com/in/juanca-dev" name="LinkedIn">
-          <LinkedinIcon />
-        </SocialIcon>
+
         <SocialIcon href="https://twitter.com/juanca-dev" name="Twitter">
           <XIcon />
         </SocialIcon>
       </div>
     </span>
-    <div class="flex gap-4 mt-2">
-    </div>
+    <div class="flex gap-4 mt-2"></div>
   </section>
   <section class="container">
     <h3>
@@ -64,5 +62,16 @@ export async function getStaticPaths() {
       href="https://www.linkedin.com/company/canastto-com/"
       description={t("home.work.last.description")}
     />
+    <span
+      class="w-full flex items-center mt-4 font-medium text-primary-600 gap-2 hover:underline"
+    >
+      {t("home.work.more")}
+      <SocialIcon
+        href="https://www.linkedin.com/in/juancadev-io"
+        name="LinkedIn"
+      >
+        <LinkedinIcon />
+      </SocialIcon>
+    </span>
   </section>
 </Layout>

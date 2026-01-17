@@ -141,11 +141,11 @@
 }
 
 /* ===== RESET BÁSICO ===== */
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 html {
   font-family: var(--font-family-primary);
@@ -157,6 +157,18 @@ html {
 
 body {
   min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 48rem;
+  flex-direction: column;
+  --tw-bg-opacity: 1;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 4rem;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
 }
 
 /* ===== CLASES UTILITY (opcionales) ===== */

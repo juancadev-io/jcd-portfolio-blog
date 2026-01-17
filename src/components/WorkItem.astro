@@ -1,0 +1,10 @@
+---
+const { name, href, description } = Astro.props;
+---
+
+<p>
+  <a class="underline" href={href}
+    >{name}</a
+  >
+  {description}
+</p>

@@ -1,5 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import SocialIcon from "../../components/SocialIcon.astro";
+import WorkItem from "../../components/WorkItem.astro";
+
+import GithubIcon from "../../icons/GithubIcon.astro";
+import YoutubeIcon from "../../icons/YoutubeIcon.astro";
+import LinkedinIcon from "../../icons/LinkedinIcon.astro";
+import XIcon from "../../icons/XIcon.astro";
 
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
@@ -13,8 +20,49 @@ export async function getStaticPaths() {
 }
 ---
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
-  <h1>
-    {t("home.title")}
-  </h1>
-  <p>{t("home.description")}</p>
+  <section class="container">
+    <h2>
+      {t("home.title")}
+    </h2>
+    <p>{t("home.description")}</p>
+    <span class="w-full flex">
+      {t("home.find.me")}: 
+      <div class="flex gap-3 px-3 justify-center items-center">
+        <SocialIcon href="https://github.com/juanca-dev" name="GitHub">
+          <GithubIcon />
+        </SocialIcon>
+        <SocialIcon href="https://www.youtube.com/@juanca-dev" name="YouTube">
+          <YoutubeIcon />
+        </SocialIcon>
+        <SocialIcon href="https://www.linkedin.com/in/juanca-dev" name="LinkedIn">
+          <LinkedinIcon />
+        </SocialIcon>
+        <SocialIcon href="https://twitter.com/juanca-dev" name="Twitter">
+          <XIcon />
+        </SocialIcon>
+      </div>
+    </span>
+    <div class="flex gap-4 mt-2">
+    </div>
+  </section>
+  <section class="container">
+    <h3>
+      {t("home.work.title")}
+    </h3>
+    <WorkItem
+      name={t("home.work.current.name")}
+      href="https://www.dafiti.com.co/"
+      description={t("home.work.current.description")}
+    />
+    <WorkItem
+      name={t("home.work.previous.name")}
+      href="https://www.bancodebogota.com/"
+      description={t("home.work.previous.description")}
+    />
+    <WorkItem
+      name={t("home.work.last.name")}
+      href="https://www.linkedin.com/company/canastto-com/"
+      description={t("home.work.last.description")}
+    />
+  </section>
 </Layout>

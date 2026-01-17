@@ -1,18 +1,32 @@
 ---
+import { Image } from "astro:assets";
+import logoAsset from "../assets/Isotipo.png";
 import HeaderLink from "./HeaderLink.astro";
 const { lang } = Astro.props;
 
 const homeSlug = `/${lang || ""}`;
 const blogSlug = `/${lang || ""}/blog`;
 const aboutSlug = `/${lang || ""}/about`;
+const youTubeSlug = `https://www.youtube.com/@juanca-dev`;
 ---
 
 <header>
-  <nav>
+  <nav class="flex w-full items-center p-4 gap-4">
+    <Image src={logoAsset} alt="Site Logo" width={70} height={70} />
+    <div class="flex-1 flex-col items-center justify-start">
+      <h1 class="text-lg font-bold pl-4">
+        JUANCADEV
+      </h1>
+      <div class="flex items-center divide-x divide-dashed divide-gray-400 mt-1">
+        <HeaderLink href={homeSlug}>Home</HeaderLink>
+        <HeaderLink href={aboutSlug}>About</HeaderLink>
+        <HeaderLink href={blogSlug}>Blog</HeaderLink>
+        <HeaderLink href={youTubeSlug} target="_blank" rel="noopener noreferrer">YouTube</HeaderLink>
+      </div>
+    </div>
     <div>
-      <HeaderLink href={homeSlug}>Home</HeaderLink>
-      <HeaderLink href={blogSlug}>Blog</HeaderLink>
-      <HeaderLink href={aboutSlug}>About</HeaderLink>
+      <!-- TODO: Buscador -->
+       <!--TODO: theme toggle  -->
     </div>
   </nav>
 </header>

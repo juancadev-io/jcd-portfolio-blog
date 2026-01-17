@@ -13,22 +13,8 @@ const { lang } = Astro.props;
 const t = useTranslations(lang as UiType);
 ---
 
-<footer>
+<footer class="flex w-full justify-between">
   <p class="text-sm">{t("footer.love")}</p>
-  <div class="flex items-center gap-2">
-    <SocialIcon href="https://github.com/juancadev-io" name="GitHub">
-      <GithubIcon />
-    </SocialIcon>
-    <SocialIcon href="https://www.youtube.com/@juanca-dev" name="YouTube">
-      <YoutubeIcon />
-    </SocialIcon>
-    <SocialIcon href="https://www.linkedin.com/in/juancadev-io" name="LinkedIn">
-      <LinkedinIcon />
-    </SocialIcon>
-    <SocialIcon href="https://x.com/juancadev_io" name="X">
-      <XIcon />
-    </SocialIcon>
-  </div>
   <div>
     <LangLink language="en" isActive={lang == "en"} />
     <LangLink language="es" isActive={lang == "es"} />

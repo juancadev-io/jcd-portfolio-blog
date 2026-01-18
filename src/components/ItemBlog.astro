@@ -1,0 +1,10 @@
+---
+const { date, title, href, extract } = Astro.props;
+import FormattedDate from "./FormattedDate.astro";
+---
+
+<h4 class="w-full">
+  <FormattedDate date={date} />
+  <a class="underline" href={href}>{title}</a>
+</h4>
+<q>{extract}</q>

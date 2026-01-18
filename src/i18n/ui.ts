@@ -2,7 +2,7 @@ export const ui = {
   en: {
     "site.title": "JuancaDev Portfolio Blog",
     "site.description":
-      "Welcome to my portfolio blog where I share my projects and thoughts.",
+      "Juan Camilo, developer, tech content creator, and game developer enthusiast.",
     "site.update.date": "Jan 1 2024",
     "nav.home": "Home",
     "nav.about": "About",
@@ -26,7 +26,21 @@ export const ui = {
     "home.work.more": "More Places I've worked",
     "about.title": "About Me",
     "about.description":
-      "Hi! I am JuancaDev, a passionate developer who loves creating web applications and sharing knowledge with the community.",
+      "I’m a tech enthusiast and software developer from Colombia, as well as a content creator. Through my experience, I’ve learned that software development is not just about writing code, but about analyzing problems and building scalable solutions. I enjoy learning constantly, building projects, and sharing practical knowledge with others.",
+    "about.journey.title": "A Journey of Learning and Growth",
+    "about.journey.description":
+      "I began my journey not in software development but in accounting and finance. However, my passion for technology led me to explore software development, where I discovered my true calling. Over the years, I have worked in various job roles and projects, from web development to game development, acquiring a wide range of skills and knowledge along the way. Today, I combine my love for technology with my desire to help others learn and grow in their own journeys.",
+    "about.my.content.title": "My Content",
+    "about.my.content.paragraph":
+      '<p class="mb-3">I usually talk about various topics such as:</p><ul><li><strong>Web Development:</strong> from creating landings to complex applications, building solid foundations.</li><li><strong>Game Dev:</strong> as a video game enthusiast, I like to know how they are made, which is why I chose Godot to learn and create my own games.</li><li><strong>Hardware:</strong> a bit about what I usually use or what interests me.</li></ul>',
+    "about.working.on.title": "Currently working on",
+    "about.working.on.description":
+      "After a year of changes and growth, I decided to focus a bit more of my time on creating content, tutorials, and supporting all those who want to enter the world of tech. I am currently preparing tutorials and generating content to share my knowledge and experiences in this exciting field.",
+    "about.contact.title": "Let's Talk!",
+    "about.contact.paragraph":
+      "I am always open to chatting about technology, development, or any interesting project. If you have any questions, suggestions, or just want to say hi, feel free to reach out to me through my social media or by sending me an email. I’m excited to connect with other tech enthusiasts and developers!",
+    "about.thank.you": "Thank you for visiting my little bits on the web!",
+    "blog.title": "Blog",
     "pagination.first": "First",
     "pagination.last": "Last",
     "pagination.prev": "Previous",
@@ -39,7 +53,7 @@ export const ui = {
   es: {
     "site.title": "JuancaDev Blog de Portafolio",
     "site.description":
-      "Bienvenido a mi blog de portafolio donde comparto mis proyectos y pensamientos.",
+      "Juan Camilo, desarrollador, creador de contenido tecnológico y entusiasta del desarrollo de videojuegos.",
     "site.update.date": "1 Ene 2024",
     "nav.home": "Inicio",
     "nav.about": "Acerca de",
@@ -63,7 +77,21 @@ export const ui = {
     "home.work.more": "Más Lugares donde he trabajado",
     "about.title": "Sobre Mí",
     "about.description":
-      "¡Hola! Soy JuancaDev, un desarrollador apasionado que ama crear aplicaciones y compartir conocimiento con la comunidad.",
+      "Soy un entusiasta de la tecnología y desarrollador de software de Colombia, así como creador de contenido. A través de mi experiencia, he aprendido que el desarrollo de software no se trata solo de escribir código, sino de analizar problemas y construir soluciones escalables. Disfruto aprender constantemente, construir proyectos y compartir conocimientos prácticos con otros.",
+    "about.journey.title": "Un viaje de aprendizaje y crecimiento",
+    "about.journey.description":
+      "Comencé mi viaje no en el desarrollo de software sino en la contabilidad y las finanzas. Sin embargo, mi pasión por la tecnología me llevó a explorar el desarrollo de software, donde descubrí mi verdadera vocación. A lo largo de los años, he trabajado en diversas areas de empleos y proyectos, desde desarrollo web hasta desarrollo de videojuegos, adquiriendo una amplia gama de habilidades y conocimientos en el camino. Hoy en día, combino mi amor por la tecnología con mi deseo de ayudar a otros a aprender y crecer en sus propios viajes.",
+    "about.my.content.title": "Mi Contenido",
+    "about.my.content.paragraph":
+      '<p class="mb-3">Suelo hablar de diversos temas como:</p><ul><li><strong>Desarrollo Web:</strong> desde la creacion de landings hasta aplicaciones complejas, creando bases sólidas.</li><li><strong>Game Dev:</strong> como apacionado de los videojuegos me gusta saber como estan hecho por eso escogi Godot para aprender y crear mis propios juegos.</li><li> <strong>Hardware:</strong> un poco de lo que suelo usar o lo que me interesa.</li></ul>',
+    "about.working.on.title": "Actualmente trabajando en",
+    "about.working.on.description":
+      "Tras un año de cambios y crecimiento, decidi enfocar un poco mas de mi tiempo en crear contenido, tutoriales y poder apoyar a todos aquellos que quieren entrar al mundo de tech. Actualmente estoy preparando tutoriales y generando contenido para compartir mis conocimientos y experiencias en este emocionante campo.",
+    "about.contact.title": "¡Hablemos!",
+    "about.contact.paragraph":
+      "Siempre esto abierto a que podamos charlar sobre tecnologia, desarrollo o cualquier proyecto interesante. Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, no dudes en contactarme a través de mis redes sociales o enviándome un correo electrónico. ¡Estoy emocionado de conectar con otros entusiastas de la tecnología y desarrolladores!",
+    "about.thank.you": "¡Gracias por visitar mis pocos bits en la web!",
+    "blog.title": "Blog",
     "pagination.first": "Primero",
     "pagination.last": "Último",
     "pagination.prev": "Anterior",

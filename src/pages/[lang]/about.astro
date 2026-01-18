@@ -1,7 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
 
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { Image } from "astro:assets";
+import aboutImage from "../../assets/elementor-placeholder-image.png";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -12,9 +15,48 @@ export async function getStaticPaths() {
   });
 }
 ---
-<Layout title={t("about.title")} description={t("about.description")} lang={lang}>
+
+<Layout
+  title={t("about.title")}
+  description={t("site.description")}
+  lang={lang}
+>
   <h2>
     {t("about.title")}
   </h2>
   <p>{t("about.description")}</p>
+  <div class="flex w-full m-auto justify-center">
+    <Image src={aboutImage} alt="JuancaDev" width={600} height={400} />
+  </div>
+  <Section title={t("about.journey.title")}>
+    <div set:html={t("about.journey.description")} />
+  </Section>
+  <Section title={t("about.my.content.title")}>
+    <div set:html={t("about.my.content.paragraph")} />
+  </Section>
+  <Section title={t("about.working.on.title")}>
+    <p>{t("about.working.on.description")}</p>
+  </Section>
+  <Section title={t("about.contact.title")}>
+    <p>{t("about.contact.paragraph")}</p>
+    <ul class="my-2">
+      <li class="flex gap-2">
+        <span class="font-bold">Email:</span>
+        <a href="mailto:hello@jcd.dev" target="_blank">hello@jcd.dev</a>
+      </li>
+      <li class="flex gap-2">
+        <span class="font-bold">Twitter:</span>
+        <a href="https://twitter.com/juancadev_io" target="_blank"
+          >@juancadev_io</a
+        >
+      </li>
+      <li class="flex gap-2">
+        <span class="font-bold">LinkedIn:</span>
+        <a href="https://www.linkedin.com/in/juancadev-io/" target="_blank"
+          >Juan Camilo Farfan</a
+        >
+      </li>
+    </ul>
+    <p class="my-6 font-semibold">{t("about.thank.you")}</p>
+  </Section>
 </Layout>

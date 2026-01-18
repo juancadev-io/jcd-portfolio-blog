@@ -1,6 +1,7 @@
 ---
 import { getBlogPosts } from "../../../content.config";
 import FormattedDate from "../../../components/FormattedDate.astro";
+import ItemBlog from "../../../components/ItemBlog.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { useTranslations } from "../../../i18n/utils";
 
@@ -32,17 +33,13 @@ const { page } = Astro.props;
       {
         page.data.map((post: any) => {
           return (
-            <li class="border-2">
-              <a href={`/${lang}/blog/${post.blog_slug}`}>
-                {/* <img
-                  width={720}
-                  height={360}
-                  src={post.data.heroImage}
-                  alt=""
-                /> */}
-                <h4>{post.data.title}</h4>
-                {post.data.pubDate ? <FormattedDate date={post.data.pubDate} /> : <p>No date</p>}
-              </a>
+            <li class="">
+              <ItemBlog
+                date={post.data.pubDate}
+                title={post.data.title}
+                extract={post.data.description}
+                href={`/${lang}/blog/${post.blog_slug}`}
+                />
             </li>
           );
         })

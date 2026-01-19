@@ -1,51 +1,55 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<'a'>;
+type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
 
 const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
-<a href={href} class:list={[className, { active: isActive }, "px-2 sm:px-4 py-1 text-sm sm:text-base relative"]} {...props}>
-	<slot />
+<a
+  href={href}
+  class:list={[
+    className,
+    { active: isActive },
+    "px-2 sm:px-4 py-1 text-sm sm:text-base relative inline-block no-underline font-medium transition.colors duration-200 ease-in-out",
+  ]}
+  {...props}
+>
+  <slot />
 </a>
 <style>
-	a {
-		display: inline-block;
-		text-decoration: none;
-		font-weight: 500;
-		transition: color 0.2s ease;
-		position: relative;
-	}
-	
-	a::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 0;
-		height: 2px;
-		background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-		transition: width 0.3s ease;
-	}
-	
-	a:hover {
-		color: var(--color-primary);
-	}
-	
-	a:hover::after {
-		width: 100%;
-	}
-	
-	a.active {
-		font-weight: 700;
-		color: var(--color-primary);
-	}
-	
-	a.active::after {
-		width: 100%;
-	}
+  a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
+    transition: width 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary);
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  a.active {
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  a.active::after {
+    width: 100%;
+  }
 </style>

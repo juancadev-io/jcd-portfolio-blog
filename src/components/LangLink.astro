@@ -16,16 +16,32 @@ const isActive = language === lang;
 const href = getLocalizedPathname(pathname, language);
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
-  {language}
+<a href={href} class:list={[className, { active: isActive }, "lang-link"]} {...props}>
+  {language.toUpperCase()}
 </a>
 <style>
   a {
     display: inline-block;
     text-decoration: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1.5px solid var(--color-border);
+    text-transform: uppercase;
   }
+  
+  a:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 127, 255, 0.05);
+    transform: translateY(-1px);
+  }
+  
   a.active {
-    font-weight: bolder;
-    text-decoration: underline;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-color: transparent;
   }
 </style>

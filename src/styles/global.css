@@ -162,13 +162,63 @@ body {
   display: flex;
   max-width: 48rem;
   flex-direction: column;
-  --tw-bg-opacity: 1;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 4rem;
+  padding: 1rem;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 640px) {
+  body {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 4rem 2rem;
+  }
+}
+
+/* ===== ESTILOS DE MARCA SUTILES ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Acentos sutiles con colores de marca */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Scrollbar personalizada (Webkit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
 }
 
 /* ===== CLASES UTILITY (opcionales) ===== */
@@ -198,4 +248,149 @@ body {
 
 @media (min-width: 1536px) {
   .container { max-width: var(--container-2xl); }
+}
+
+/* ===== UTILIDADES RESPONSIVE ===== */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== PROSE STYLES (para contenido de blog) ===== */
+.prose {
+  color: var(--color-text-primary);
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 { font-size: var(--font-size-4xl); }
+.prose h2 { font-size: var(--font-size-3xl); }
+.prose h3 { font-size: var(--font-size-2xl); }
+
+.prose p {
+  margin-bottom: 1rem;
+  line-height: var(--line-height-relaxed);
+}
+
+.prose ul, .prose ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+/* Modo oscuro para prose */
+.dark .prose {
+  color: var(--color-text-primary);
+}
+
+/* ===== ANIMACIONES SUTILES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== FOCUS VISIBLE (accesibilidad) ===== */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-base);
+}
+
+/* ===== CLASES UTILITARIAS DE GRADIENTE ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-line-h {
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.gradient-line-v {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.gradient-border-bottom {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, var(--color-primary), var(--color-secondary)) 1;
+}
+
+/* ===== UTILIDADES CON @layer ===== */
+@layer utilities {
+  /* Colores de marca */
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  
+  .border-secondary {
+    border-color: var(--color-secondary);
+  }
+  
+  /* Hover states */
+  .hover\:text-primary:hover {
+    color: var(--color-primary);
+  }
+  
+  .hover\:text-secondary:hover {
+    color: var(--color-secondary);
+  }
+  
+  .hover\:border-primary:hover {
+    border-color: var(--color-primary);
+  }
 }

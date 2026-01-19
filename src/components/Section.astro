@@ -2,7 +2,10 @@
 const {title} = Astro.props;
 ---
 
-<section class="container mt-6 mb-4">
-  <h4 class="border-b-2 w-full capitalize font-bold text-lg mb-4">{title}</h4>
+<section class="container mt-8 sm:mt-10 mb-6 sm:mb-8">
+  <div class="mb-6">
+    <h2 class="capitalize font-bold text-xl sm:text-2xl mb-2">{title}</h2>
+    <div class="h-1 w-full rounded-full gradient-line-h"></div>
+  </div>
   <slot />
 </section>

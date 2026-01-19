@@ -15,23 +15,36 @@ const aboutSlug = ROUTES.about(lang);
 const youTubeSlug = SOCIAL_LINKS.youtube;
 ---
 
-<header>
-  <nav class="flex w-full items-center p-4 gap-4">
-    <Image src={logoAsset} alt="Site Logo" width={70} height={70} />
-    <div class="flex-1 flex-col items-center justify-start">
-      <h1 class="text-lg font-bold pl-4">
+<header class="mb-8">
+  <nav class="flex flex-col sm:flex-row w-full items-center gap-4 sm:gap-6">
+    <!-- Logo y marca -->
+    <div class="flex items-center gap-3">
+      <Image 
+        src={logoAsset} 
+        alt="Site Logo" 
+        width={50} 
+        height={50}
+        class="sm:w-[60px] sm:h-[60px] hover:scale-110 transition-transform duration-300"
+      />
+      <h1 class="text-xl sm:text-2xl font-bold gradient-text">
         {SITE_INFO.brandName}
       </h1>
-      <div class="flex items-center divide-x divide-dashed divide-gray-400 mt-1">
+    </div>
+    
+    <!-- Navegación -->
+    <div class="flex-1 flex items-center justify-center sm:justify-start">
+      <div class="flex items-center divide-x divide-gray-300 dark:divide-gray-600">
         <HeaderLink href={homeSlug}>{t("nav.home")}</HeaderLink>
         <HeaderLink href={aboutSlug}>{t("nav.about")}</HeaderLink>
         <HeaderLink href={blogSlug}>Blog</HeaderLink>
-        <HeaderLink href={youTubeSlug} target="_blank" rel="noopener noreferrer">YouTube</HeaderLink>
+        <HeaderLink href={youTubeSlug} target="_blank" rel="noopener noreferrer">
+          <span class="hidden sm:inline">YouTube</span>
+          <span class="sm:hidden">YT</span>
+        </HeaderLink>
       </div>
     </div>
-    <div>
-      <!-- TODO: Buscador -->
-       <!--TODO: theme toggle  -->
-    </div>
   </nav>
+  
+  <!-- Línea decorativa sutil con colores de marca -->
+  <div class="mt-4 h-0.5 w-full gradient-line-h opacity-30"></div>
 </header>

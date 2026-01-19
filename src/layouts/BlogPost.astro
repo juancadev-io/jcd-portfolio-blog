@@ -21,7 +21,7 @@ const t = useTranslations(lang as UiType);
   updatedDate={updatedDate}
   lang={lang}
 >
-  <article class="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none">
+  <article class="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none">
     <!-- Hero Image -->
     {heroImage && (
       <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
@@ -34,7 +34,7 @@ const t = useTranslations(lang as UiType);
       <h1 class="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
         {title}
       </h1>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-400">
         {pubDate && (
           <div class="flex items-center gap-1">
             <span class="font-medium">Publicado:</span>

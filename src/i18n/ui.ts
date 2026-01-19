@@ -1,12 +1,11 @@
 export const ui = {
   en: {
-    "site.title": "JuancaDev Portfolio Blog",
+    "site.title": "JuancaDev",
     "site.description":
       "Juan Camilo, developer, tech content creator, and game developer enthusiast.",
     "site.update.date": "Jan 1 2024",
     "nav.home": "Home",
     "nav.about": "About",
-    "nav.twitter": "Twitter",
     "home.title": "Hi there",
     "home.description":
       "I’m Juancadev, a software developer focused on web development and game development with Godot. I create practical, hands-on content where I explain how things work behind the scenes, using real examples, clean code, and good practices, with the goal of helping other developers build strong foundations, develop technical thinking, and create their own projects with confidence.",
@@ -41,6 +40,7 @@ export const ui = {
       "I am always open to chatting about technology, development, or any interesting project. If you have any questions, suggestions, or just want to say hi, feel free to reach out to me through my social media or by sending me an email. I’m excited to connect with other tech enthusiasts and developers!",
     "about.thank.you": "Thank you for visiting my little bits on the web!",
     "blog.title": "Blog",
+    "blog.tags.view.all": "View all tags",
     "pagination.first": "First",
     "pagination.last": "Last",
     "pagination.prev": "Previous",
@@ -51,13 +51,12 @@ export const ui = {
     "footer.love": "Made with ❤️ for the community by JuancaDev",
   },
   es: {
-    "site.title": "JuancaDev Blog de Portafolio",
+    "site.title": "JuancaDev",
     "site.description":
       "Juan Camilo, desarrollador, creador de contenido tecnológico y entusiasta del desarrollo de videojuegos.",
     "site.update.date": "1 Ene 2024",
     "nav.home": "Inicio",
     "nav.about": "Acerca de",
-    "nav.twitter": "Twitter",
     "home.title": "Hola",
     "home.description":
       "Soy Juancadev, desarrollador de software enfocado en desarrollo web y desarrollo de videojuegos con Godot. Creo contenido práctico y aplicado donde explico cómo funcionan las cosas por dentro, usando ejemplos reales, código limpio y buenas prácticas, con el objetivo de ayudar a otros desarrolladores a construir bases sólidas, desarrollar criterio técnico y crear sus propios proyectos con confianza.",
@@ -92,6 +91,7 @@ export const ui = {
       "Siempre esto abierto a que podamos charlar sobre tecnologia, desarrollo o cualquier proyecto interesante. Si tienes alguna pregunta, sugerencia o simplemente quieres saludar, no dudes en contactarme a través de mis redes sociales o enviándome un correo electrónico. ¡Estoy emocionado de conectar con otros entusiastas de la tecnología y desarrolladores!",
     "about.thank.you": "¡Gracias por visitar mis pocos bits en la web!",
     "blog.title": "Blog",
+    "blog.tags.view.all": "Ver todos los tags",
     "pagination.first": "Primero",
     "pagination.last": "Último",
     "pagination.prev": "Anterior",

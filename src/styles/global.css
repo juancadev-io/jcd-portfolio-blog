@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /**
  * Design Tokens - Juancadev Portfolio & Blog
  * Sistema de tokens de diseño centralizado

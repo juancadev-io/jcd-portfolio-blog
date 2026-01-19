@@ -26,68 +26,72 @@ export async function getStaticPaths() {
 ---
 
 <Layout title={t("site.title")} description={t("site.description")} lang={lang}>
-  <section class="container">
-    <h2>
+  <!-- Hero Section -->
+  <section class="container mb-12">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 gradient-text">
       {t("home.title")}
-    </h2>
-    <p>{t("home.description")}</p>
-    <span class="w-full flex">
-      {t("home.find.me")}:
-      <div class="flex gap-3 px-3 justify-center items-center">
+    </h1>
+    <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6">{t("home.description")}</p>
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+      <span class="text-sm sm:text-base font-medium">{t("home.find.me")}:</span>
+      <div class="flex gap-3">
         <SocialIcon href={SOCIAL_LINKS.github} name="GitHub">
           <GithubIcon />
         </SocialIcon>
         <SocialIcon href={SOCIAL_LINKS.youtube} name="YouTube">
           <YoutubeIcon />
         </SocialIcon>
-
         <SocialIcon href={SOCIAL_LINKS.twitter} name="Twitter">
           <XIcon />
         </SocialIcon>
       </div>
-    </span>
-    <div class="flex gap-4 mt-2"></div>
+    </div>
   </section>
-  <section class="container">
-    <h3>
+  
+  <!-- Work Section -->
+  <section class="container mb-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">
       {t("home.work.title")}
-    </h3>
-    <WorkItem
-      name={t("home.work.current.name")}
-      href={WORK_COMPANIES.dafiti}
-      description={t("home.work.current.description")}
-    />
-    <WorkItem
-      name={t("home.work.previous.name")}
-      href={WORK_COMPANIES.bancodeBogota}
-      description={t("home.work.previous.description")}
-    />
-    <WorkItem
-      name={t("home.work.last.name")}
-      href={WORK_COMPANIES.canastto}
-      description={t("home.work.last.description")}
-    />
-    <span
-      class="w-full flex items-center mt-4 font-medium text-primary-600 gap-2 hover:underline"
-    >
-      <a href={SOCIAL_LINKS.linkedin} class="underline" target="_blank">
+    </h2>
+    <div class="space-y-4">
+      <WorkItem
+        name={t("home.work.current.name")}
+        href={WORK_COMPANIES.dafiti}
+        description={t("home.work.current.description")}
+      />
+      <WorkItem
+        name={t("home.work.previous.name")}
+        href={WORK_COMPANIES.bancodeBogota}
+        description={t("home.work.previous.description")}
+      />
+      <WorkItem
+        name={t("home.work.last.name")}
+        href={WORK_COMPANIES.canastto}
+        description={t("home.work.last.description")}
+      />
+    </div>
+    <div class="flex items-center mt-6 gap-2">
+      <a 
+        href={SOCIAL_LINKS.linkedin} 
+        class="text-primary hover:text-secondary font-medium transition-colors duration-200 underline" 
+        target="_blank"
+      >
         {t("home.work.more")}
       </a>
-      <SocialIcon
-        href={SOCIAL_LINKS.linkedin}
-        name="LinkedIn"
-      >
+      <SocialIcon href={SOCIAL_LINKS.linkedin} name="LinkedIn">
         <LinkedinIcon />
       </SocialIcon>
-    </span>
+    </div>
   </section>
-  <section class="container mt-8">
-    <h3>{t("home.latest.title")}</h3>
-    <ol class="mt-4 space-y-2">
+  
+  <!-- Latest Posts Section -->
+  <section class="container">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">{t("home.latest.title")}</h2>
+    <ol class="space-y-3">
       {
         latestPosts.map((post) => (
-          <li class="flex pb-3 gap-3 items-center">
-            <p class="text-sm">
+          <li class="flex flex-col sm:flex-row pb-3 gap-2 sm:gap-3 sm:items-center border-l-2 border-transparent hover:border-primary pl-3 transition-all duration-200">
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 min-w-[100px]">
               {post.data.pubDate ? (
                 <FormattedDate date={post.data.pubDate} />
               ) : (
@@ -95,7 +99,7 @@ export async function getStaticPaths() {
               )}
             </p>
             <a
-              class="block font-semibold text-primary-600 underline"
+              class="font-semibold text-gray-900 dark:text-gray-100 hover:text-primary transition-colors duration-200"
               href={`/${lang}/blog/${post.blog_slug}`}
             >
               {post.data.title}

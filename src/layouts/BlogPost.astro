@@ -21,28 +21,73 @@ const t = useTranslations(lang as UiType);
   updatedDate={updatedDate}
   lang={lang}
 >
-  <article>
-    <div>
-      {heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-    </div>
-    <div>
-      <div>
-        <div>
-          {
-            pubDate && <FormattedDate date={pubDate} />
-          }
-          {
-            updatedDate && (
-              <div>
-                {t("updated.on")} <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <span>{title}</span>
-        <hr />
+  <article class="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none">
+    <!-- Hero Image -->
+    {heroImage && (
+      <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+        <img width={1020} height={510} src={heroImage} alt={title} class="w-full h-auto" />
       </div>
+    )}
+    
+    <!-- Meta Info -->
+    <div class="mb-8 pb-6 gradient-border-bottom">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
+        {title}
+      </h1>
+      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-600 dark:text-gray-400">
+        {pubDate && (
+          <div class="flex items-center gap-1">
+            <span class="font-medium">Publicado:</span>
+            <FormattedDate date={pubDate} />
+          </div>
+        )}
+        {updatedDate && (
+          <div class="flex items-center gap-1">
+            <span class="font-medium">{t("updated.on")}:</span>
+            <FormattedDate date={updatedDate} />
+          </div>
+        )}
+      </div>
+    </div>
+    
+    <!-- Content -->
+    <div class="blog-content">
       <slot />
     </div>
   </article>
 </Layout>
+
+<style>
+  .blog-content :global(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+  }
+  
+  .blog-content :global(a:hover) {
+    color: var(--color-secondary);
+  }
+  
+  .blog-content :global(code) {
+    background-color: var(--color-surface-elevated);
+    padding: 0.125rem 0.25rem;
+    border-radius: var(--radius-base);
+    font-size: 0.875em;
+  }
+  
+  .blog-content :global(pre) {
+    background-color: var(--color-surface-elevated);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    overflow-x: auto;
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .blog-content :global(blockquote) {
+    border-left: 4px solid;
+    border-image: linear-gradient(180deg, var(--color-primary), var(--color-secondary)) 1;
+    padding-left: 1rem;
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+</style>

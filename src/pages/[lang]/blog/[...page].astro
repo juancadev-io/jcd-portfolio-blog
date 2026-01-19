@@ -1,7 +1,7 @@
 ---
-import { getBlogPosts } from "../../../content.config";
-import FormattedDate from "../../../components/FormattedDate.astro";
-import ItemBlog from "../../../components/ItemBlog.astro";
+import { getBlogPosts, PAGINATION_SIZE, MAX_TAGS_DISPLAY, getBlogPostsByLang } from "../../../content.config";
+import BlogPostList from "../../../components/BlogPostList.astro";
+import Pagination from "../../../components/Pagination.astro";
 import Layout from "../../../layouts/Layout.astro";
 import { useTranslations } from "../../../i18n/utils";
 
@@ -9,74 +9,51 @@ const { lang } = Astro.params;
 const t = useTranslations(lang);
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
-  const PAGE_SIZE = 15;
-  const _posts = await getBlogPosts();
+  const allPosts = await getBlogPosts();
+  
   return ["en", "es"].flatMap((lang) => {
-    const posts_filtered = _posts
-      ?.filter((blog) => {
-        return blog?.data?.lang === lang;
-      })
+    const posts_filtered = allPosts
+      .filter((post) => post.data.lang === lang)
       .sort(
         (a, b) =>
-          (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
+          (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
       );
-    return paginate(posts_filtered, { params: { lang }, pageSize: PAGE_SIZE });
+    return paginate(posts_filtered, { params: { lang }, pageSize: PAGINATION_SIZE });
   });
 }
+
+const posts = await getBlogPostsByLang(lang);
+const tags = posts
+  .flatMap((post) => post.data.tags || [])
+  .slice(0, MAX_TAGS_DISPLAY);
 
 const { page } = Astro.props;
 ---
 
 <Layout title="Blog" description="Blog" lang={lang}>
-  <section id="posts-list">
-    <ul>
-      {
-        page.data.map((post: any) => {
-          return (
-            <li class="">
-              <ItemBlog
-                date={post.data.pubDate}
-                title={post.data.title}
-                extract={post.data.description}
-                href={`/${lang}/blog/${post.blog_slug}`}
-                />
-            </li>
-          );
-        })
-      }
-    </ul>
-    <div>
-      {
-        page.url.first ? (
-          <a href={page.url.first}>
-            {t("pagination.first")}
-          </a>
-        ) : (
-          <span>{t("pagination.first")}</span>
-        )
-      }
-      {
-        page.url.prev ? (
-          <a href={page.url.prev}>{t("pagination.prev")}</a>
-        ) : (
-          <span>{t("pagination.prev")}</span>
-        )
-      }
-      <span>{t("page")} {page.currentPage}/{page.lastPage}</span>
-      {
-        page.url.next ? (
-          <a href={page.url.next}>{t("pagination.next")}</a>
-        ) : (
-          <span>{t("pagination.next")}</span>
-        )
-      }
-      {
-        page.url.last ? (
-          <a href={page.url.last}>{t("pagination.last")}</a>
-        ) : (
-          <span>{t("pagination.last")}</span>
-        )
-      }
-    </div>
-  </section>
+  <div class="grid grid-cols-[3fr_1fr] gap-8">
+    <section class="w-full flex-1">
+      <BlogPostList posts={page.data} lang={lang} />
+      <Pagination page={page} lang={lang} />
+    </section>
+    <aside>
+      <h3>Tags</h3>
+      <ul class="flex flex-wrap gap-3">
+        {
+          Array.from(new Set(tags)).map((tag) => {
+            return (
+              <li class="w-fit">
+                <a href={`/${lang}/tags/${tag}`} class="underline">
+                  #{tag}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <a href={`/${lang}/tags`} class="underline mt-4 inline-block">
+        {t("blog.tags.view.all")}
+      </a>
+    </aside>
+  </div>
 </Layout>

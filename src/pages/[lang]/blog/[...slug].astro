@@ -23,6 +23,5 @@ const { Content } = await page.render();
 ---
 
 <BlogPost {...page.data} lang={lang}>
-	<p>by {page.data.author}{page.data.pubDate && (<> • <FormattedDate date={page.data.pubDate} /></>)}</p>
 	<Content />
 </BlogPost>

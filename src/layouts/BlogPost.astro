@@ -5,7 +5,7 @@ import Layout from "./Layout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, lang } =
+const { title, description, pubDate, updatedDate, heroImage, lang, author } =
   Astro.props;
 
 import { useTranslations, type UiType } from "../i18n/utils";
@@ -47,6 +47,7 @@ const t = useTranslations(lang as UiType);
             <FormattedDate date={updatedDate} />
           </div>
         )}
+        by <div class="font-medium">{author}</div>
       </div>
     </div>
     

@@ -13,12 +13,12 @@ const { lang } = Astro.props;
 const t = useTranslations(lang as UiType);
 ---
 
-<footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+<footer class="mt-12 pt-8 border-t border-gray-300">
   <!-- Línea decorativa sutil con colores de marca -->
   <div class="mb-6 h-0.5 w-16 mx-auto gradient-line-h"></div>
   
   <div class="flex flex-col sm:flex-row w-full justify-between items-center gap-4 mb-8">
-    <p class="text-sm text-gray-600 dark:text-gray-400 text-center sm:text-left">
+    <p class="text-sm text-gray-400 text-center sm:text-left">
       {t("footer.love")}
     </p>
     <div class="flex gap-2">

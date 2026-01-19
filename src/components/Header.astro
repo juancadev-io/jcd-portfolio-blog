@@ -5,7 +5,6 @@ import HeaderLink from "./HeaderLink.astro";
 import { ROUTES, SOCIAL_LINKS, SITE_INFO } from "../constants";
 const { lang } = Astro.props;
 import { useTranslations } from "../i18n/utils";
-// import ThemeIcon from "./ThemeIcon.astro";
 
 const t = useTranslations(lang);
 
@@ -34,7 +33,7 @@ const youTubeSlug = SOCIAL_LINKS.youtube;
     
     <!-- Navegación -->
     <div class="flex-1 flex items-center justify-center sm:justify-start">
-      <div class="flex items-center divide-x divide-gray-300 dark:divide-gray-600">
+      <div class="flex items-center divide-x divide-gray-300">
         <HeaderLink href={homeSlug}>{t("nav.home")}</HeaderLink>
         <HeaderLink href={aboutSlug}>{t("nav.about")}</HeaderLink>
         <HeaderLink href={blogSlug}>Blog</HeaderLink>
@@ -44,7 +43,6 @@ const youTubeSlug = SOCIAL_LINKS.youtube;
         </HeaderLink>
       </div>
     </div>
-    <!-- <ThemeIcon /> -->
   </nav>
   
   <!-- Línea decorativa sutil con colores de marca -->

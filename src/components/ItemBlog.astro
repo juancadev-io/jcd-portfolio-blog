@@ -3,7 +3,7 @@ const { date, title, href, extract } = Astro.props;
 import FormattedDate from "./FormattedDate.astro";
 ---
 
-<article class="group p-4 sm:p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-md">
+<article class="group p-4 sm:p-6 rounded-lg border border-gray-600 hover:border-primary transition-all duration-300 hover:shadow-md">
   <div class="mb-2">
     <FormattedDate date={date} />
   </div>
@@ -16,7 +16,7 @@ import FormattedDate from "./FormattedDate.astro";
       <span class="absolute bottom-0 left-0 w-0 h-0.5 gradient-line-h group-hover:w-full transition-all duration-300"></span>
     </a>
   </h4>
-  <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 line-clamp-2">
+  <p class="text-sm sm:text-base text-gray-400 line-clamp-2">
     {extract}
   </p>
 </article>

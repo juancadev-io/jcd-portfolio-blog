@@ -13,7 +13,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang as UiType);
 ---
 
-<footer class="flex w-full justify-between">
+<footer class="flex w-full justify-between mt-6 mb-8">
   <p class="text-sm">{t("footer.love")}</p>
   <div>
     <LangLink language="en" isActive={lang == "en"} />

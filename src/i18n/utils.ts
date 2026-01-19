@@ -40,18 +40,9 @@ export function pathNameIsInLanguage(pathname: string, lang: UiType) {
 }
 
 function pathNameStartsWithLanguage(pathname: string) {
-  let startsWithLanguage = false;
-  const languages = Object.keys(LANGUAGES);
-
-  for (const element of languages) {
-    const lang = element;
-    if (pathname.startsWith(`/${lang}`)) {
-      startsWithLanguage = true;
-      break;
-    }
-  }
-
-  return startsWithLanguage;
+  return Object.keys(LANGUAGES).some((lang) =>
+    pathname.startsWith(`/${lang}`)
+  );
 }
 
 export function getLocalizedPathname(pathname: string, lang: UiType) {

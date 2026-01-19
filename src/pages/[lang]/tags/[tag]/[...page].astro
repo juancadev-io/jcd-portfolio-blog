@@ -1,0 +1,43 @@
+---
+import { getBlogPosts, normalizeTags } from "../../../../content.config";
+import Layout from "../../../../layouts/Layout.astro";
+import BlogPostList from "../../../../components/BlogPostList.astro";
+import Pagination from "../../../../components/Pagination.astro";
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const posts = await getBlogPosts();
+  const langs = ["en", "es"];
+
+  return langs.flatMap((lang) => {
+    const postsByLang = posts
+      .filter((p) => p.data.lang === lang)
+      .sort((a, b) => (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0));
+
+    const tagSet = new Set();
+    postsByLang.forEach((p) => normalizeTags(p.data.tags).forEach((tag) => tagSet.add(tag)));
+    const tags = Array.from(tagSet);
+
+    return tags.flatMap((tag) => {
+      const taggedPosts = postsByLang.filter((p) =>
+        normalizeTags(p.data.tags).includes(tag as string)
+      );
+
+      return paginate(taggedPosts, {
+        params: { lang, tag },
+        pageSize: 15,
+        props: { lang, tag },
+      });
+    });
+  });
+}
+
+const { page, lang, tag } = Astro.props;
+---
+
+<Layout title={`Posts tagged with "${tag}"`} description={`Posts tagged with "${tag}"`} lang={lang}>
+  <section class="container">
+    <h2>Posts tagged with "{tag}"</h2>
+    <BlogPostList posts={page.data} lang={lang} />
+    <Pagination page={page} lang={lang} class="mt-6" />
+  </section>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import { getBlogPostsByLang, normalizeTags } from "../../../content.config";
+import Layout from "../../../layouts/Layout.astro";
+import {getLangFromUrl, useTranslations } from "../../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+// Obtener tags únicos del idioma actual
+const postsByLang = await getBlogPostsByLang(lang);
+const uniqueTags = new Set<string>();
+postsByLang.forEach((post) => {
+  normalizeTags(post.data.tags).forEach((tag) => uniqueTags.add(tag));
+});
+
+export async function getStaticPaths() {
+  return ["en", "es"].map((lang) => {
+    return { params: { lang } };
+  });
+}
+
+---
+
+<Layout title="Tags" description="Tags" lang={lang}>
+  <section class="container">
+    <h2>Tags</h2>
+    <ul class="flex flex-wrap w-full gap-3">
+      {
+        Array.from(uniqueTags).map((tag) => {
+          return (
+            <li class="mb-2 w-fit">
+              <a href={`/${lang}/tags/${tag}`} class="border-b-2 p-2">
+                #{tag}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </section>
+</Layout>

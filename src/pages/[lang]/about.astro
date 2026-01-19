@@ -22,10 +22,10 @@ export async function getStaticPaths() {
   description={t("site.description")}
   lang={lang}
 >
-  <h2>
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 gradient-text">
     {t("about.title")}
   </h2>
-  <p>{t("about.description")}</p>
+  <p class="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6">{t("about.description")}</p>
   <div class="flex w-full m-auto justify-center">
     <Image src={aboutImage} alt="JuancaDev" width={600} height={400} />
   </div>

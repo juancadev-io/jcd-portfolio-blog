@@ -36,7 +36,7 @@ const { page, lang, tag } = Astro.props;
 
 <Layout title={`Posts tagged with "${tag}"`} description={`Posts tagged with "${tag}"`} lang={lang}>
   <section class="container">
-    <h2>Posts tagged with "{tag}"</h2>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text capitalize">"{tag}"</h2>
     <BlogPostList posts={page.data} lang={lang} />
     <Pagination page={page} lang={lang} class="mt-6" />
   </section>

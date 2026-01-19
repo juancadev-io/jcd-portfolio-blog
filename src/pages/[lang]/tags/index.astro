@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 
 <Layout title="Tags" description="Tags" lang={lang}>
   <section class="container">
-    <h2>Tags</h2>
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 gradient-text">Tags</h2>
     <ul class="flex flex-wrap w-full gap-3">
       {
         Array.from(uniqueTags).map((tag) => {

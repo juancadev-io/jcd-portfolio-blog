@@ -158,7 +158,6 @@ body {
 /* ===== ESTILOS DE MARCA SUTILES ===== */
 a {
   color: inherit;
-  text-decoration: none;
   transition: var(--transition-base);
 }
 

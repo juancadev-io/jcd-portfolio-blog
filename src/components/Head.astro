@@ -15,22 +15,18 @@ interface Props {
 }
 
 const canonicalPathname = pathNameIsInLanguage(Astro.url.pathname, DEFAULT_LANG)
-	? Astro.url.pathname
-	: getLocalizedPathname(Astro.url.pathname, DEFAULT_LANG);
+  ? Astro.url.pathname
+  : getLocalizedPathname(Astro.url.pathname, DEFAULT_LANG);
 const canonicalURL = new URL(canonicalPathname, Astro.site);
-const {
-	lang,
-	title,
-	description,
-	image = "",
-} = Astro.props;
-
+const { lang, title, description, image = "" } = Astro.props;
+const keywords =
+  "Juan Camilo Farfan, JuanCaDev, juancamilofarfan.com, software engineer, software developer, full stack developer, developer blog, programming blog, tech blog, portfolio, web development, desarrollo web, backend development, frontend development, arquitectura de software, clean architecture, patrones de diseño, JavaScript, TypeScript, Astro, React, Vue, Node.js, FastAPI, Godot Engine, GDScript";
 const alternateLang = Object.keys(LANGUAGES) as UiType[];
 const alternateLinks = alternateLang.map((_lang: UiType) => {
-	return {
-		href: new URL(getLocalizedPathname(Astro.url.pathname, _lang), Astro.site),
-		hreflang: _lang,
-	};
+  return {
+    href: new URL(getLocalizedPathname(Astro.url.pathname, _lang), Astro.site),
+    hreflang: _lang,
+  };
 });
 ---
 
@@ -49,15 +45,16 @@ const alternateLinks = alternateLang.map((_lang: UiType) => {
 
 <!-- Alternate URLs -->
 {
-	alternateLinks.map(({ href, hreflang }) => (
-		<link rel="alternate" href={href} hreflang={hreflang} />
-	))
+  alternateLinks.map(({ href, hreflang }) => (
+    <link rel="alternate" href={href} hreflang={hreflang} />
+  ))
 }
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 
 <!-- Open Graph / Facebook -->
 <!-- Twitter -->

@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 /**
  * Design Tokens - Juancadev Portfolio & Blog
  * Sistema de tokens de diseño centralizado
@@ -20,19 +18,19 @@
   --color-secondary-light: #FFB933;
   --color-secondary-dark: #CC8400;
   
-  /* ===== COLORES DE UI ===== */
-  --color-background: #FFFFFF;
-  --color-background-alt: #F9FAFB;
-  --color-surface: #FFFFFF;
-  --color-surface-elevated: #F3F4F6;
+  /* ===== COLORES DE UI (DARK MODE ONLY) ===== */
+  --color-background: #111827;
+  --color-background-alt: #1F2937;
+  --color-surface: #1F2937;
+  --color-surface-elevated: #374151;
   
-  --color-text-primary: #111827;
-  --color-text-secondary: #6B7280;
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #D1D5DB;
   --color-text-tertiary: #9CA3AF;
-  --color-text-inverse: #FFFFFF;
+  --color-text-inverse: #111827;
   
-  --color-border: #E5E7EB;
-  --color-border-hover: #D1D5DB;
+  --color-border: #374151;
+  --color-border-hover: #4B5563;
   
   /* ===== COLORES SEMÁNTICOS ===== */
   --color-success: #10B981;
@@ -123,31 +121,6 @@
   --container-xl: 1280px;
   --container-2xl: 1536px;
 }
-
-/* ===== MODO OSCURO ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #111827;
-    --color-background-alt: #1F2937;
-    --color-surface: #1F2937;
-    --color-surface-elevated: #374151;
-    
-    --color-text-primary: #F9FAFB;
-    --color-text-secondary: #D1D5DB;
-    --color-text-tertiary: #9CA3AF;
-    --color-text-inverse: #111827;
-    
-    --color-border: #374151;
-    --color-border-hover: #4B5563;
-  }
-}
-
-/* ===== RESET BÁSICO ===== */
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 
 html {
   font-family: var(--font-family-primary);

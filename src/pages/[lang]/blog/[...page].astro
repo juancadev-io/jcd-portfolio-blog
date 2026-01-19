@@ -31,12 +31,31 @@ const { page } = Astro.props;
 ---
 
 <Layout title="Blog" description="Blog" lang={lang}>
-  <div class="grid grid-cols-[3fr_1fr] gap-8">
-    <section class="w-full flex-1">
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-[3fr_1fr]">
+    <aside class="lg:hidden order-first">
+      <h3>Tags</h3>
+      <ul class="flex flex-wrap gap-3">
+        {
+          Array.from(new Set(tags)).map((tag) => {
+            return (
+              <li class="w-fit">
+                <a href={`/${lang}/tags/${tag}`} class="underline">
+                  #{tag}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <a href={`/${lang}/tags`} class="underline mt-4 inline-block">
+        {t("blog.tags.view.all")}
+      </a>
+    </aside>
+    <section class="w-full flex-1 lg:order-first">
       <BlogPostList posts={page.data} lang={lang} />
       <Pagination page={page} lang={lang} />
     </section>
-    <aside>
+    <aside class="hidden lg:block">
       <h3>Tags</h3>
       <ul class="flex flex-wrap gap-3">
         {

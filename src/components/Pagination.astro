@@ -1,0 +1,66 @@
+---
+import { useTranslations, type UiType } from "../i18n/utils";
+
+interface PaginationInfo {
+  url: {
+    first?: string;
+    prev?: string;
+    next?: string;
+    last?: string;
+  };
+  currentPage?: number;
+  lastPage?: number;
+}
+
+interface Props {
+  page?: PaginationInfo;
+  lang: string;
+  show?: boolean;
+  class?: string;
+}
+
+const { page, lang, show = true, class: className = "" } = Astro.props as Props;
+const t = useTranslations(lang as UiType);
+const shouldRender = Boolean(show && page && page.lastPage && page.lastPage > 1);
+const linkClass = "text-primary-600 underline font-semibold";
+const mutedClass = "text-neutral-500";
+---
+
+{shouldRender && (
+  <nav
+    class={`flex  w-full flex-wrap items-center justify-between gap-3 text-sm ${className}`.trim()}
+    aria-label="Pagination"
+  >
+    {page?.url?.first ? (
+      <a class={linkClass} href={page.url.first}>
+        {t("pagination.first")}
+      </a>
+    ) : (
+      <span class={mutedClass}>{t("pagination.first")}</span>
+    )}
+    {page?.url?.prev ? (
+      <a class={linkClass} href={page.url.prev}>
+        {t("pagination.prev")}
+      </a>
+    ) : (
+      <span class={mutedClass}>{t("pagination.prev")}</span>
+    )}
+    <span class="font-medium">
+      {t("page")} {page?.currentPage}/{page?.lastPage}
+    </span>
+    {page?.url?.next ? (
+      <a class={linkClass} href={page.url.next}>
+        {t("pagination.next")}
+      </a>
+    ) : (
+      <span class={mutedClass}>{t("pagination.next")}</span>
+    )}
+    {page?.url?.last ? (
+      <a class={linkClass} href={page.url.last}>
+        {t("pagination.last")}
+      </a>
+    ) : (
+      <span class={mutedClass}>{t("pagination.last")}</span>
+    )}
+  </nav>
+)}

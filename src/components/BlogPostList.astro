@@ -1,0 +1,36 @@
+---
+import ItemBlog from "./ItemBlog.astro";
+
+interface BlogPost {
+  blog_slug: string;
+  data: {
+    pubDate?: Date;
+    title?: string;
+    description?: string;
+  };
+}
+
+interface Props {
+  posts?: BlogPost[];
+  lang: string;
+  listClass?: string;
+  itemClass?: string;
+}
+
+const { posts = [], lang, listClass = "", itemClass = "" } = Astro.props as Props;
+---
+
+<ul class={`space-y-4 ${listClass}`.trim()}>
+  {
+    posts.map((post) => (
+      <li class={itemClass}>
+        <ItemBlog
+          date={post.data.pubDate}
+          title={post.data.title}
+          extract={post.data.description}
+          href={`/${lang}/blog/${post.blog_slug}`}
+        />
+      </li>
+    ))
+  }
+</ul>

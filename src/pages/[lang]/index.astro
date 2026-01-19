@@ -9,19 +9,14 @@ import YoutubeIcon from "../../icons/YoutubeIcon.astro";
 import LinkedinIcon from "../../icons/LinkedinIcon.astro";
 import XIcon from "../../icons/XIcon.astro";
 
-import { getBlogPosts } from "../../content.config";
+import { getBlogPostsByLang } from "../../content.config";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { SOCIAL_LINKS, WORK_COMPANIES } from "../../constants";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const latestPosts = (await getBlogPosts())
-  .filter((post) => post.data.lang === lang)
-  .sort(
-    (a, b) =>
-      (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0),
-  )
-  .slice(0, 10);
+const latestPosts = (await getBlogPostsByLang(lang)).slice(0, 10);
 
 export async function getStaticPaths() {
   return ["en", "es"].map((lang) => {
@@ -39,14 +34,14 @@ export async function getStaticPaths() {
     <span class="w-full flex">
       {t("home.find.me")}:
       <div class="flex gap-3 px-3 justify-center items-center">
-        <SocialIcon href="https://github.com/juanca-dev" name="GitHub">
+        <SocialIcon href={SOCIAL_LINKS.github} name="GitHub">
           <GithubIcon />
         </SocialIcon>
-        <SocialIcon href="https://www.youtube.com/@juanca-dev" name="YouTube">
+        <SocialIcon href={SOCIAL_LINKS.youtube} name="YouTube">
           <YoutubeIcon />
         </SocialIcon>
 
-        <SocialIcon href="https://twitter.com/juanca-dev" name="Twitter">
+        <SocialIcon href={SOCIAL_LINKS.twitter} name="Twitter">
           <XIcon />
         </SocialIcon>
       </div>
@@ -59,27 +54,27 @@ export async function getStaticPaths() {
     </h3>
     <WorkItem
       name={t("home.work.current.name")}
-      href="https://www.dafiti.com.co/"
+      href={WORK_COMPANIES.dafiti}
       description={t("home.work.current.description")}
     />
     <WorkItem
       name={t("home.work.previous.name")}
-      href="https://www.bancodebogota.com/"
+      href={WORK_COMPANIES.bancodeBogota}
       description={t("home.work.previous.description")}
     />
     <WorkItem
       name={t("home.work.last.name")}
-      href="https://www.linkedin.com/company/canastto-com/"
+      href={WORK_COMPANIES.canastto}
       description={t("home.work.last.description")}
     />
     <span
       class="w-full flex items-center mt-4 font-medium text-primary-600 gap-2 hover:underline"
     >
-      <a href="https://www.linkedin.com/in/juancadev-io" class="underline">
+      <a href={SOCIAL_LINKS.linkedin} class="underline" target="_blank">
         {t("home.work.more")}
       </a>
       <SocialIcon
-        href="https://www.linkedin.com/in/juancadev-io"
+        href={SOCIAL_LINKS.linkedin}
         name="LinkedIn"
       >
         <LinkedinIcon />

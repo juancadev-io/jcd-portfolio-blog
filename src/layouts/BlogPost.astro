@@ -3,9 +3,20 @@ import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import Layout from "./Layout.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  readingTime?: number;
+};
 
-const { title, description, pubDate, updatedDate, heroImage, lang, author } =
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  heroImage,
+  lang,
+  author,
+  readingTime,
+} =
   Astro.props;
 
 import { useTranslations, type UiType } from "../i18n/utils";
@@ -45,6 +56,12 @@ const t = useTranslations(lang as UiType);
           <div class="flex items-center gap-1">
             <span class="font-medium">{t("updated.on")}:</span>
             <FormattedDate date={updatedDate} />
+          </div>
+        )}
+        {readingTime && (
+          <div class="flex items-center gap-1">
+            <span class="font-medium">{t("reading.time")}:</span>
+            <span>{readingTime} min</span>
           </div>
         )}
         by <div class="font-medium">{author}</div>

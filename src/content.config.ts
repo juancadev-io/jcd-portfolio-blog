@@ -1,4 +1,5 @@
 import { defineCollection, z, getCollection} from 'astro:content';
+import { calculateReadingTime } from "./helpers/readingTime";
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema
@@ -22,9 +23,11 @@ export async function getBlogPosts() {
 
 	return posts.map((post) => {
 		const blog_slug = post.slug.split('/')[0];
+		const readingTime = calculateReadingTime(post.body ?? '');
 		return {
 			...post,
-			blog_slug
+			blog_slug,
+			readingTime,
 		}
 	})
 }

@@ -48,6 +48,7 @@ export const ui = {
     page: "Page",
     "published.on": "Published on",
     "updated.on": "Updated on",
+    "reading.time": "Reading time",
     "footer.love": "Made with ❤️ for the community by JuancaDev",
     "404.title": "Looks like you got lost",
     "404.description": "But don't worry, let's go back home and get back on track.",
@@ -105,6 +106,7 @@ export const ui = {
     "404.button": "Ir a Inicio",
     "published.on": "Publicado el",
     "updated.on": "Actualizado el",
+    "reading.time": "Tiempo de lectura",
     "footer.love": "Hecho con ❤️ para la comunidad por JuancaDev",
   },
 } as const;

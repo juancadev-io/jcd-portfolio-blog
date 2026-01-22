@@ -22,6 +22,6 @@ const page = Astro.props;
 const { Content } = await page.render();
 ---
 
-<BlogPost {...page.data} lang={lang}>
+<BlogPost {...page.data} lang={lang} readingTime={page.readingTime}>
 	<Content />
 </BlogPost>

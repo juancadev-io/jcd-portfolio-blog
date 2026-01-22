@@ -1,4 +1,4 @@
-const WORDS_PER_MINUTE = 200;
+const WORDS_PER_MINUTE = 150;
 
 const countWords = (text: string) =>
   text

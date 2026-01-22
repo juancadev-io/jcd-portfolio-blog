@@ -1,20 +1,5 @@
 import { defineCollection, z, getCollection} from 'astro:content';
-
-const WORDS_PER_MINUTE = 200;
-
-const countWords = (text: string) =>
-	text
-		.replace(/```[\s\S]*?```/g, ' ')
-		.replace(/`[^`]*`/g, ' ')
-		.replace(/<[^>]+>/g, ' ')
-		.replace(/[#*_>~\-]/g, ' ')
-		.replace(/\s+/g, ' ')
-		.trim()
-		.split(' ')
-		.filter(Boolean).length;
-
-const calculateReadingTime = (content: string) =>
-	Math.max(1, Math.ceil(countWords(content) / WORDS_PER_MINUTE));
+import { calculateReadingTime } from "./helpers/readingTime";
 
 const blog = defineCollection({
 	// Type-check frontmatter using a schema

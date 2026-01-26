@@ -347,5 +347,3 @@ Godot gives you autoload, and that's fine... but the singleton pattern is **much
 💡 **Remember:** The singleton pattern is just one piece of the puzzle, use it wisely along with other design practices to create complex and optimized systems.
 
 ---
-
-And as always, happy coding! 🚀✨

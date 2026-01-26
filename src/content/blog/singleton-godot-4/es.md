@@ -353,5 +353,3 @@ Godot te da autoload, y está bien... pero el patrón singleton es **mucho más 
 💡 **Recuerda:** El patrón singleton es solo una pieza del rompecabezas, úsalo sabiamente junto con otras prácticas de diseño para crear sistemas complejos y optimizados.
 
 ---
-
-¡Y como siempre, feliz coding! 🚀✨

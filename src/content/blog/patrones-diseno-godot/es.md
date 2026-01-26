@@ -1,8 +1,8 @@
 ---
 title: "Patrones de diseño en Godot: hoja de ruta rápida"
 description: "Resumen ágil de 7 patrones de diseño aplicados en Godot, con notas prácticas y la ruta de artículos que publicaremos para cada uno."
-pubDate: "2026-01-21"
-updatedDate: "2026-01-21"
+pubDate: "2026-01-26"
+updatedDate: "2026-01-26"
 author: "JuancaDev"
 lang: "es"
 tags:

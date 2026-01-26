@@ -1,8 +1,8 @@
 ---
 title: "Design Patterns in Godot: quick roadmap"
 description: "A fast overview of 7 design patterns applied in Godot, with practical notes and the article roadmap for each one."
-pubDate: "2026-01-21"
-updatedDate: "2026-01-21"
+pubDate: "2026-01-26"
+updatedDate: "2026-01-26"
 author: "JuancaDev"
 lang: "en"
 tags:

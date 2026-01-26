@@ -30,7 +30,7 @@ const displayDate = hasPubDate && hasUpdatedDate
   : (updatedDate ?? pubDate);
 const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate)
   ? t("updated.on")
-  : "Publicado";
+  : t("published.on");
 ---
 
 <Layout
@@ -74,6 +74,7 @@ const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate
     <!-- Content -->
     <div class="blog-content">
       <slot />
+      <p>{t("blog.farewell")}</p>
     </div>
   </article>
 </Layout>

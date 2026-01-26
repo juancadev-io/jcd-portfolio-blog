@@ -1,5 +1,5 @@
 ---
-import { getBlogPosts, normalizeTags } from "../../../content.config";
+import { getBlogPosts, getRelatedPosts } from "../../../content.config";
 import BlogPost from "../../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
@@ -17,29 +17,7 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const page = Astro.props;
-const allPosts = await getBlogPosts();
-const currentTags = normalizeTags(page.data.tags);
-const relatedPosts = allPosts
-	.filter((post) => post.blog_slug !== page.blog_slug && post.data.lang === lang)
-	.map((post) => {
-		const tags = normalizeTags(post.data.tags);
-		const sharedTags = tags.filter((tag) => currentTags.includes(tag));
-
-		return {
-			...post,
-			sharedTags,
-			sharedCount: sharedTags.length,
-		};
-	})
-	.filter((post) => post.sharedCount > 0)
-	.sort((a, b) => {
-		if (b.sharedCount !== a.sharedCount) {
-			return b.sharedCount - a.sharedCount;
-		}
-
-		return (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0);
-	})
-	.slice(0, 3);
+const relatedPosts = await getRelatedPosts({ currentPost: page, lang });
 
 const { Content } = await page.render();
 ---

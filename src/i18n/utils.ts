@@ -1,13 +1,13 @@
 import { ui } from "./ui";
 
 export const LANGUAGES = {
-  en: "English",
   es: "Español",
+  en: "English",
 };
 
 export const LANGUAGES_KEYS = Object.keys(LANGUAGES) as UiType[];
 
-export const DEFAULT_LANG = "en";
+export const DEFAULT_LANG = "es";
 export type UiType = keyof typeof ui;
 
 export function getLangFromUrl(url: URL) {

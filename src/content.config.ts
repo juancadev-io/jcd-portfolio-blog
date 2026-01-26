@@ -50,3 +50,40 @@ export async function getBlogPostsByLang(lang: string) {
 // Normalizar tags asegurando que sea un array
 export const normalizeTags = (tags: string[] | undefined): string[] =>
 	Array.isArray(tags) ? tags : [];
+
+export async function getRelatedPosts({
+	currentPost,
+	lang,
+	limit = 3,
+}: {
+	currentPost: Awaited<ReturnType<typeof getBlogPosts>>[number];
+	lang: string;
+	limit?: number;
+}) {
+	const allPosts = await getBlogPosts();
+	const currentTags = normalizeTags(currentPost.data.tags);
+
+	return allPosts
+		.filter(
+			(post) => post.blog_slug !== currentPost.blog_slug && post.data.lang === lang
+		)
+		.map((post) => {
+			const tags = normalizeTags(post.data.tags);
+			const sharedTags = tags.filter((tag) => currentTags.includes(tag));
+
+			return {
+				...post,
+				sharedTags,
+				sharedCount: sharedTags.length,
+			};
+		})
+		.filter((post) => post.sharedCount > 0)
+		.sort((a, b) => {
+			if (b.sharedCount !== a.sharedCount) {
+				return b.sharedCount - a.sharedCount;
+			}
+
+			return (b.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0);
+		})
+		.slice(0, limit);
+}

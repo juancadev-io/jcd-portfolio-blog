@@ -1,7 +1,6 @@
 ---
-import { getBlogPosts } from "../../../content.config";
+import { getBlogPosts, getRelatedPosts } from "../../../content.config";
 import BlogPost from "../../../layouts/BlogPost.astro";
-import FormattedDate from "../../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
 	const pages = await getBlogPosts();
@@ -18,10 +17,16 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.params;
 const page = Astro.props;
+const relatedPosts = await getRelatedPosts({ currentPost: page, lang });
 
 const { Content } = await page.render();
 ---
 
-<BlogPost {...page.data} lang={lang} readingTime={page.readingTime}>
+<BlogPost
+	{...page.data}
+	lang={lang}
+	readingTime={page.readingTime}
+	relatedPosts={relatedPosts}
+>
 	<Content />
 </BlogPost>

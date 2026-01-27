@@ -25,21 +25,28 @@ const {
   author,
   readingTime,
   relatedPosts = [],
-} =
-  Astro.props;
+} = Astro.props;
 
 import { useTranslations, type UiType } from "../i18n/utils";
 
 const t = useTranslations(lang as UiType);
 
+const githubRepo = "https://github.com/juancadev-io/jcd-portfolio-blog";
+const issuesUrl = `${githubRepo}/issues/new/choose`;
+const contactUrl = `/${lang}/about`;
+
 const hasPubDate = Boolean(pubDate);
 const hasUpdatedDate = Boolean(updatedDate);
-const displayDate = hasPubDate && hasUpdatedDate
-  ? (updatedDate > pubDate ? updatedDate : pubDate)
-  : (updatedDate ?? pubDate);
-const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate)
-  ? t("updated.on")
-  : t("published.on");
+const displayDate =
+  hasPubDate && hasUpdatedDate
+    ? updatedDate > pubDate
+      ? updatedDate
+      : pubDate
+    : (updatedDate ?? pubDate);
+const displayDateLabel =
+  hasUpdatedDate && (!hasPubDate || updatedDate > pubDate)
+    ? t("updated.on")
+    : t("published.on");
 ---
 
 <Layout
@@ -50,77 +57,106 @@ const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate
   updatedDate={updatedDate}
   lang={lang}
 >
-  <article class="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none">
+  <article
+    class="prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none"
+  >
     <!-- Hero Image -->
-    {heroImage && (
-      <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
-        <img width={1020} height={510} src={heroImage} alt={title} class="w-full h-auto" />
-      </div>
-    )}
-    
+    {
+      heroImage && (
+        <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+          <img
+            width={1020}
+            height={510}
+            src={heroImage}
+            alt={title}
+            class="w-full h-auto"
+          />
+        </div>
+      )
+    }
+
     <!-- Meta Info -->
     <div class="mb-8 pb-6 gradient-border-bottom">
       <h1 class="text-3xl sm:text-4xl font-bold mb-4 gradient-text">
         {title}
       </h1>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-400">
-        {displayDate && (
-          <div class="flex items-center gap-1">
-            <span class="font-medium">{displayDateLabel}:</span>
-            <FormattedDate date={displayDate} />
-          </div>
-        )}
-        {readingTime && (
-          <div class="flex items-center gap-1">
-            <span class="font-medium">{t("reading.time")}:</span>
-            <span>{readingTime} min</span>
-          </div>
-        )}
+      <div
+        class="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-gray-400"
+      >
+        {
+          displayDate && (
+            <div class="flex items-center gap-1">
+              <span class="font-medium">{displayDateLabel}:</span>
+              <FormattedDate date={displayDate} />
+            </div>
+          )
+        }
+        {
+          readingTime && (
+            <div class="flex items-center gap-1">
+              <span class="font-medium">{t("reading.time")}:</span>
+              <span>{readingTime} min</span>
+            </div>
+          )
+        }
         by <div class="font-medium">{author}</div>
       </div>
     </div>
-    
+
     <!-- Content -->
     <div class="blog-content">
       <slot />
-      <p>{t("blog.farewell")}</p>
+      <p class="text-center mt-4">{t("blog.farewell")}</p>
+      <p>
+        {t("blog.feedback.prefix")}
+        {" "}
+        <a href={issuesUrl} rel="noopener noreferrer" target="_blank">
+          {t("blog.feedback.issue")}
+        </a>{" "}
+        {t("blog.feedback.connector")}
+        {" "}
+        <a href={contactUrl}>{t("blog.feedback.message")}</a>.
+      </p>
     </div>
 
-    {relatedPosts.length > 0 && (
-      <aside class="related-posts mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-sm">
-        <h2 class="text-xl font-semibold text-white">
-          {t("blog.related.title")}
-        </h2>
-        <p class="mt-2 text-sm text-gray-400">
-          {t("blog.related.subtitle")}
-        </p>
-        <div class="mt-6 grid gap-4 sm:grid-cols-2">
-          {relatedPosts.map((post) => (
-            <article class="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-white/20 hover:bg-white/[0.05]">
-              <h3 class="text-base font-semibold text-white">
-                <a href={`/${post.data.lang}/blog/${post.blog_slug}`} class="no-underline">
-                  {post.data.title}
-                </a>
-              </h3>
-              {post.data.description && (
-                <p class="mt-2 text-sm text-gray-400">
-                  {post.data.description}
-                </p>
-              )}
-              {post.sharedTags && post.sharedTags.length > 0 && (
-                <div class="mt-3 flex flex-wrap gap-2">
-                  {post.sharedTags.map((tag) => (
-                    <span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gray-300">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </aside>
-    )}
+    {
+      relatedPosts.length > 0 && (
+        <aside class="related-posts mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6 shadow-sm">
+          <h2 class="text-xl font-semibold text-white">
+            {t("blog.related.title")}
+          </h2>
+          <p class="mt-2 text-sm text-gray-400">{t("blog.related.subtitle")}</p>
+          <div class="mt-6 grid gap-4 sm:grid-cols-2">
+            {relatedPosts.map((post) => (
+              <article class="rounded-xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-white/20 hover:bg-white/[0.05]">
+                <h3 class="text-base font-semibold text-white">
+                  <a
+                    href={`/${post.data.lang}/blog/${post.blog_slug}`}
+                    class="no-underline"
+                  >
+                    {post.data.title}
+                  </a>
+                </h3>
+                {post.data.description && (
+                  <p class="mt-2 text-sm text-gray-400">
+                    {post.data.description}
+                  </p>
+                )}
+                {post.sharedTags && post.sharedTags.length > 0 && (
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {post.sharedTags.map((tag) => (
+                      <span class="rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gray-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
+        </aside>
+      )
+    }
   </article>
 </Layout>
 
@@ -130,18 +166,18 @@ const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate
     text-decoration: underline;
     transition: color 0.2s ease;
   }
-  
+
   .blog-content :global(a:hover) {
     color: var(--color-secondary);
   }
-  
+
   .blog-content :global(code) {
     background-color: var(--color-surface-elevated);
     padding: 0.125rem 0.25rem;
     border-radius: var(--radius-base);
     font-size: 0.875em;
   }
-  
+
   .blog-content :global(pre) {
     background-color: var(--color-surface-elevated);
     padding: 1rem;
@@ -149,10 +185,15 @@ const displayDateLabel = hasUpdatedDate && (!hasPubDate || updatedDate > pubDate
     overflow-x: auto;
     border-left: 3px solid var(--color-primary);
   }
-  
+
   .blog-content :global(blockquote) {
     border-left: 4px solid;
-    border-image: linear-gradient(180deg, var(--color-primary), var(--color-secondary)) 1;
+    border-image: linear-gradient(
+        180deg,
+        var(--color-primary),
+        var(--color-secondary)
+      )
+      1;
     padding-left: 1rem;
     font-style: italic;
     color: var(--color-text-secondary);

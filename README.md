@@ -1,46 +1,55 @@
-# Astro Starter Kit: Basics
+# JCD Portfolio & Blog
 
-```sh
-npm create astro@latest -- --template basics
-```
+Sitio personal de JuancaDev (JCD) construido con Astro. Incluye portafolio, blog, etiquetas, páginas multi‑idioma y RSS.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## ✨ Secciones
 
-## 🚀 Project Structure
+- Inicio y presentación
+- Portafolio / trabajos
+- Blog con paginación y tags
+- Contenido multi‑idioma (ES/EN)
+- RSS y robots
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🧱 Estructura del proyecto
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── content/
+│   │   └── blog/
+│   ├── i18n/
+│   ├── layouts/
+│   ├── pages/
+│   │   └── [lang]/
+│   └── styles/
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Comandos
 
-## 🧞 Commands
+| Comando           | Acción                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Instala dependencias                        |
+| `npm run dev`     | Servidor local en `localhost:4321`          |
+| `npm run build`   | Construye a `./dist/`                       |
+| `npm run preview` | Previsualiza el build local                 |
 
-All commands are run from the root of the project, from a terminal:
+## 📝 Contenido del blog
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Los posts viven en `src/content/blog/` y soportan ES/EN. Cada entrada tiene su carpeta con `es.md` y `en.md` (y assets si aplica).
 
-## 👀 Want to learn more?
+## 📦 Tecnologías
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Astro
+- TypeScript
+- CSS (tokens y estilos globales)
+
+## 📬 Contacto
+
+Si ves algo para mejorar, abre un issue en GitHub o envíame un mensaje.
+
+- Issues: https://github.com/juancadev-io/jcd-portfolio-blog/issues
+- Contacto: /es/about y /en/about

@@ -42,7 +42,7 @@ export const ui = {
     "blog.title": "Blog",
     "blog.tags.view.all": "View all tags",
     "blog.farewell": "And as always, happy coding! 🚀✨",
-    "blog.feedback": "If you see something to improve, open an issue or send me a message.",
+
     "blog.related.title": "Related posts",
     "blog.related.subtitle": "More articles connected by the same tags.",
     "blog.feedback.prefix": "If you see something to improve,",
@@ -105,7 +105,7 @@ export const ui = {
     "blog.title": "Blog",
     "blog.tags.view.all": "Ver todos los tags",
     "blog.farewell": "¡Y como siempre, feliz coding! 🚀✨",
-    "blog.feedback": "Si ves algo para mejorar, abre un issue o envíame un mensaje.",
+
     "blog.related.title": "Posts relacionados",
     "blog.related.subtitle": "Más artículos conectados por los mismos tags.",
     "blog.feedback.prefix": "Si ves algo para mejorar,",

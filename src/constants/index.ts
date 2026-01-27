@@ -16,8 +16,8 @@ export const WORK_COMPANIES = {
 // CONTACTO - Contact
 export const CONTACT = {
   email: {
-    link: "hello@jcd.dev",
-    display: "hello@jcd.dev",
+    link: "juancamilofarfanjuanias@gmail.com",
+    display: "juancamilofarfanjuanias@gmail.com",
   },
   linkedin: {
     link: "https://www.linkedin.com/in/juancadev-io/",

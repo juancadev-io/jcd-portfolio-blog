@@ -3,7 +3,7 @@ export const ui = {
     "site.title": "JuancaDev",
     "site.description":
       "Juan Camilo, developer, tech content creator, and game developer enthusiast.",
-    "site.update.date": "Jan 1 2024",
+    "site.update.date": "Feb 18, 2024",
     "nav.home": "Home",
     "nav.about": "About",
     "home.title": "Hi there",
@@ -23,6 +23,10 @@ export const ui = {
     "home.work.last.description":
       "building and maintaining robust backend services for a growing e-commerce platform.",
     "home.work.more": "More Places I've worked",
+    "home.projects.title": "Projects",
+    "home.projects.signature.name": "Email signature generator",
+    "home.projects.signature.description":
+      "Open-source email signature generator built with Svelte (no backend). Export HTML for Gmail/Outlook and PNG for mobile. Repo: {0}",
     "about.title": "About Me",
     "about.description":
       "I’m a tech enthusiast and software developer from Colombia, as well as a content creator. Through my experience, I’ve learned that software development is not just about writing code, but about analyzing problems and building scalable solutions. I enjoy learning constantly, building projects, and sharing practical knowledge with others.",
@@ -66,7 +70,7 @@ export const ui = {
     "site.title": "JuancaDev",
     "site.description":
       "Juan Camilo, desarrollador, creador de contenido tecnológico y entusiasta del desarrollo de videojuegos.",
-    "site.update.date": "1 Ene 2024",
+    "site.update.date": "18 Feb 2024",
     "nav.home": "Inicio",
     "nav.about": "Acerca de",
     "home.title": "Hola",
@@ -86,6 +90,10 @@ export const ui = {
     "home.work.last.description":
       "creando y manteniendo servicios backend robustos para una plataforma de comercio electrónico en crecimiento.",
     "home.work.more": "Más Lugares donde he trabajado",
+    "home.projects.title": "Proyectos",
+    "home.projects.signature.name": "Generador de firmas de correo",
+    "home.projects.signature.description":
+      "Generador open-source de firmas de correo en Svelte (sin backend). Exporta HTML para Gmail/Outlook y PNG para móviles. Repo: {0}",
     "about.title": "Sobre Mí",
     "about.description":
       "Soy un entusiasta de la tecnología y desarrollador de software de Colombia, así como creador de contenido. A través de mi experiencia, he aprendido que el desarrollo de software no se trata solo de escribir código, sino de analizar problemas y construir soluciones escalables. Disfruto aprender constantemente, construir proyectos y compartir conocimientos prácticos con otros.",

@@ -1,5 +1,5 @@
 ---
-const { name, href, description } = Astro.props;
+const { name, href, description, descriptionHtml } = Astro.props;
 ---
 
 <div class="group p-4 rounded-lg border border-gray-700 hover:border-primary transition-all duration-300 hover:shadow-md">
@@ -11,7 +11,11 @@ const { name, href, description } = Astro.props;
     {name}
     <span class="inline-block group-hover:translate-x-1 transition-transform duration-200">→</span>
   </a>
-  <p class="text-sm sm:text-base text-gray-400">
-    {description}
-  </p>
+  {
+    descriptionHtml ? (
+      <p class="text-sm sm:text-base text-gray-400" set:html={descriptionHtml} />
+    ) : (
+      <p class="text-sm sm:text-base text-gray-400">{description}</p>
+    )
+  }
 </div>

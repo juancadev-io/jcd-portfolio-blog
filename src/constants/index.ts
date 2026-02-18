@@ -35,6 +35,14 @@ export const SITE_INFO = {
   brandName: "JUANCADEV",
 } as const;
 
+// PROYECTOS - Projects
+export const PROJECTS = {
+  signatureGenerator: {
+    live: "https://signature.juancamilofarfan.com/",
+    repo: "https://github.com/juancadev-io/jcd-signature-svelte-web",
+  },
+} as const;
+
 // RUTAS NAVEGACIÓN - Navigation Routes
 export const ROUTES = {
   home: (lang?: string) => `/${lang || ""}`,

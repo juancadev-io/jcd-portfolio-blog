@@ -11,7 +11,7 @@ import XIcon from "../../icons/XIcon.astro";
 
 import { getBlogPostsByLang } from "../../content.config";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import { SOCIAL_LINKS, WORK_COMPANIES } from "../../constants";
+import { PROJECTS, SOCIAL_LINKS, WORK_COMPANIES } from "../../constants";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -81,6 +81,23 @@ export async function getStaticPaths() {
       <SocialIcon href={SOCIAL_LINKS.linkedin} name="LinkedIn">
         <LinkedinIcon />
       </SocialIcon>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="container mb-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">
+      {t("home.projects.title")}
+    </h2>
+    <div class="space-y-4">
+      <WorkItem
+        name={t("home.projects.signature.name")}
+        href={PROJECTS.signatureGenerator.live}
+        descriptionHtml={t(
+          "home.projects.signature.description",
+          `<a href="${PROJECTS.signatureGenerator.repo}" class="text-primary hover:text-secondary underline" target="_blank" rel="noopener noreferrer">GitHub</a>`
+        )}
+      />
     </div>
   </section>
   
